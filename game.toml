@@ -1,0 +1,55 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Mortal Kombat 4"
+id = "SLUS-00605"
+region = "USA"
+players = 2
+exe = "disc/SLUS_006.05"
+load_address = "0x00010000"
+entry_pc = "0x00010008"
+text_size = "0x00107000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "disc1.bin"
+cue_name = "disc1.cue"
+boot_exe = "SLUS_006.05"
+known_sizes = [718112640]
+known_md5 = [
+  "3c3ddcb5d2fe38070fc53f556769dd4a",
+]
+known_sha1 = [
+  "21515cdd9829521a2db76a83300b77e83855fa88",
+]
+known_crc32 = [
+  "8f6b19f1",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "Mortal Kombat 4 Recompiled"
+memcard_dir = "saves"
+bios_hle = false
+openbios = false
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "859865f0500ef3678533867c900098be6500034e1608798a6c6b4eaeda79b6b9"

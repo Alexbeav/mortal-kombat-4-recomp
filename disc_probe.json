@@ -1,11 +1,11 @@
 {
-  "cue_path": "I:\\Projects\\PSX-Ports\\_isos\\mortal-kombat-4\\disc1.cue",
   "cue_name": "disc1.cue",
   "bin_name": "disc1.bin",
   "track_count": 1,
   "data_track_size": 718112640,
   "data_track_md5": "3c3ddcb5d2fe38070fc53f556769dd4a",
   "data_track_sha1": "21515cdd9829521a2db76a83300b77e83855fa88",
+  "data_track_sha256": "c43311155c03f7f9c23e7228bbf8874a5fdaa0984dbbefa356e5899eb40038a3",
   "data_track_crc32": "8f6b19f1",
   "boot_exe": "SLUS_006.05",
   "serial": "SLUS-00605",

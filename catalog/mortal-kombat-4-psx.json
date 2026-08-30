@@ -1,0 +1,80 @@
+{
+  "id": "mortal-kombat-4-psx",
+  "name": "Mortal Kombat 4",
+  "kind": "recomp",
+  "platform": "psx",
+  "description": "Mortal Kombat 4 (USA) recompiled for the Sony PlayStation using psxrecomp.",
+  "homepage": "https://github.com/Alexbeav/mortal-kombat-4-recomp",
+  "author_notes": "Use the verified USA SLUS-00605 single-track CUE/BIN dump and a legal SCPH-1001 BIOS dump.",
+  "rom_identity": {
+    "crc32": ["8f6b19f1"],
+    "md5": ["3c3ddcb5d2fe38070fc53f556769dd4a"],
+    "sha1": ["21515cdd9829521a2db76a83300b77e83855fa88"],
+    "sha256": ["c43311155c03f7f9c23e7228bbf8874a5fdaa0984dbbefa356e5899eb40038a3"],
+    "disc_serials": ["SLUS-00605"],
+    "sizes": [718112640],
+    "filenames": [
+      "Mortal Kombat 4 (USA).cue",
+      "Mortal Kombat 4 (USA).bin",
+      "disc1.cue",
+      "disc1.bin"
+    ],
+    "track_counts": [1],
+    "require_cue": true
+  },
+  "rom_extensions": [".cue", ".bin"],
+  "bios_identity": {
+    "required": true,
+    "crc32": ["37157331"],
+    "md5": ["924e392ed05558ffdb115408c263dccf"],
+    "sha1": ["10155d8d6e6e832d6ea66db9bc098321fb5e8ebf"],
+    "sha256": ["71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"],
+    "sizes": [524288],
+    "filenames": ["SCPH1001.BIN", "scph1001.bin", "ps-22a.bin"]
+  },
+  "release": {
+    "github": "Alexbeav/mortal-kombat-4-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "linux": "mortal-kombat-4-recomp-*linux*",
+      "windows": "mortal-kombat-4-recomp-*windows*",
+      "macos": "mortal-kombat-4-recomp-*macos*"
+    }
+  },
+  "install_dir_name": "MortalKombat4Recomp",
+  "launch": {
+    "linux": "Mortal_Kombat_4",
+    "windows": "Mortal_Kombat_4.exe",
+    "macos": "Mortal_Kombat_4"
+  },
+  "romm": {
+    "platforms": ["ps", "psx", "ps1"]
+  },
+  "notes": "Draft for the v0.3.0 RetComM packaging canary. The audited Windows setup package passed an isolated RetComM v0.6.33 build and a 5,417-frame installed-binary boot gate. Publication and final operator acceptance remain pending.",
+  "build": {
+    "enabled": true,
+    "source": {
+      "github": "Alexbeav/mortal-kombat-4-recomp",
+      "ref": "v0.3.0"
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "github": "TechnicallyComputers/retcomm-toolchains",
+      "min_version": "1.0.14",
+      "asset_glob": {
+        "linux": "*cmake-clang-v1*linux*",
+        "windows": "*cmake-clang-v1*windows*",
+        "macos": "*cmake-clang-v1*macos*"
+      }
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+psxrecomp=84f70d6 (84f70d670e3c458730f26fc8430e02f39b2f53a4; local setup-host candidate based on f23c5ba1a220fe1ca8818cc48c026d6c2f7f2c64)
+recomp-ui=87bbf43 (87bbf43c419c16b97bf433a84d600969159e2e84)
