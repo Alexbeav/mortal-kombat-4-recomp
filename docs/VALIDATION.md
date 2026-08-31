@@ -245,8 +245,39 @@ Replacement run `33375274724` passed emitter and setup-host compilation on
 macOS ARM64. Its archive step then stopped because the title wrapper required
 `launcher_assets`, although that optional directory contained no tracked file
 and was absent from the clean checkout. The wrapper now includes that directory
-only when it contains a file. The replacement release-build run remains
-pending.
+only when it contains a file.
+
+Final run `33375675671` used title commit `98adbed` and framework commit
+`eecf3b2a`. Windows x64, Linux x64, macOS x64, and macOS ARM64 all passed.
+The exact CI archives have these identities:
+
+- Windows x64: `2a02f1789ab6652ad2b80dbafd125bda27e432d274b7f79726ff85dee7fb9e9e`
+  (`30098559` bytes)
+- Linux x64: `d7cc6a88f8182fda1b6747f148e5e75020a2bc9d8da6db4bb5bd0f06fd7c7273`
+  (`28063725` bytes)
+- macOS x64: `f988420386dd3b0e2f4d154fda46517fae95554018234fe311ae221885f1ebdd`
+  (`25852777` bytes)
+- macOS ARM64: `3c0f06dc00ae295795ddc1e42c629a492a65602fe98794f23a651ba4717d9afc`
+  (`25506416` bytes)
+
+Each archive reports version `0.3.4`. Each archive contains four root mod
+manifests and the expected platform executable. The repeated archive audit
+found no disc, BIOS, save/state, generated retail source, unsafe ZIP path, or
+exact private local path.
+
+RetComM v0.6.33 consumed the exact CI Windows archive in a new data root. It
+generated the game and retail SCPH-1001 BIOS backends, built the runtime, and
+installed it. The installed executable is `51767808` bytes with SHA-256
+`b6bf0e546eece5e2435ce6d36fca4d278080db0e3955cd30c7bd6676168d3138`.
+The hidden 25-second gate reached frame and VBlank `3719`. The process remained
+active until the gate stopped it. It reported no fatal state and zero automatic
+or failed freeze dumps.
+
+Tag `v0.3.4` points to exact CI source commit `98adbed`. The private draft
+release is
+`https://github.com/Alexbeav/mortal-kombat-4-recomp/releases/tag/untagged-c3adb2a9fba5d8daa998`.
+All six draft assets were downloaded again. Their sizes and SHA-256 values
+match the local candidate. The repeated content audit passed.
 
 ## RetComM installation evidence
 
@@ -272,8 +303,8 @@ Hidden headless boot gate:
 - Failed freeze dumps: `0`
 - Process state after 25 seconds: active; the bounded gate stopped it
 
-This evidence proves the RetComM generation and build flow. It does not qualify
-the rejected archive or the replacement `v0.3.4` package.
+This evidence proves the RetComM generation and build flow. The exact CI
+Windows canary above qualifies the replacement package for operator gameplay.
 
 ## Operator acceptance
 
@@ -285,8 +316,6 @@ archive is rejected, these results do not qualify the replacement package.
 
 ## Open release gates
 
-1. Run setup-host release CI on Windows, Linux x64, macOS x64, and macOS ARM64.
-2. Record operator gameplay acceptance for the exact `v0.3.4` package.
-3. Prepare the immutable `v0.3.4` draft release.
-4. Download and audit every draft asset.
-5. Show the final catalog manifest and request submission approval.
+1. Record operator gameplay acceptance for the exact CI `v0.3.4` package.
+2. Show the final catalog manifest and request submission approval.
+3. Publish the private draft only after explicit approval.
