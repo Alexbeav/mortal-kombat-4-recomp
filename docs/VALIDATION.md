@@ -2,14 +2,15 @@
 
 Date: 2026-08-31
 
-Status: The `v0.3.0` through `v0.3.3` package drafts are rejected. The
-replacement `v0.3.4` Windows package passes the local archive audit and two
-clean-room RetComM canaries. Its missing title license blocks publication.
-The `v0.3.5` source boundary adds the selected license and awaits package
-qualification. No repository, release, or catalog entry was published.
+Status: The `v0.3.0` through `v0.3.4` package drafts are rejected. The licensed
+`v0.3.5` replacement passed the exact package gates. The repository and regular
+v0.3.5 release are public. The master portfolio index and Pages site link this
+stable title repository. RetComM catalog submission issue #24 is open and waits
+for the maintainer's approved label.
 
 Current graduation state: `bootstrap_verified`. The runtime evidence validates
-the RetComM build flow. Public package qualification remains incomplete.
+the RetComM build flow. Public package qualification and publication are
+complete. This state does not claim end-to-end game completion.
 
 ## Scope
 
@@ -365,11 +366,34 @@ The operator also ran the package from a writable directory whose path contains
 spaces. The test route and duration were not recorded. Because the tested
 archive is rejected, these results do not qualify the replacement package.
 
-## Open release gates
+## Release-gate closure
 
-1. Select the license for title-owned source files.
-2. Build and qualify a new immutable version that contains that license.
-3. Record operator gameplay acceptance for the exact replacement package.
-4. Validate the public-release readiness receipt.
-5. Publish through the authorized publisher.
-6. Show the final catalog manifest and request submission approval.
+The licensed v0.3.5 package closed the immutable-candidate, exact-package,
+remote-byte, gameplay, and manifest-bound authorization gates. The remaining
+external step is catalog-maintainer approval of submission issue #24.
+
+## Public publication and catalog submission
+
+The exact authorization bound publication to v0.3.5 and manifest SHA-256
+`4AC64EE43ED4064EBBC8B416DC7121A7BF59299E18DE9D550853B7E925D27508`.
+The repository became public and the existing regular release became the
+public latest release on 2026-08-31:
+
+- Repository: `https://github.com/Alexbeav/mortal-kombat-4-recomp`
+- Release: `https://github.com/Alexbeav/mortal-kombat-4-recomp/releases/tag/v0.3.5`
+- Master catalog commit: `3e5359dc74b4a6887a8324a41fb39f003b1347a8`
+- Pages deployment run: `33406765426` (passed)
+
+The signed-in form then produced only one conflicting identity. Its browser
+MD5 was `6dcfb511b288caf6a503351df51cfa8d`. CRC32, SHA-1, SHA-256, and the
+718,112,640-byte size matched the repository. PowerShell and CertUtil both
+confirmed MD5 `3c3ddcb5d2fe38070fc53f556769dd4a`.
+
+The form source at catalog commit
+`3c1b8fc257f1ee2523c50af5456e7bc15d4c0235` writes only the low 32 bits of
+the required 64-bit MD5 message-length trailer. MK4 needs a nonzero high word.
+Alex corrected the editable MD5 and added a maintainer note. After action-time
+confirmation, the form created
+`https://github.com/TechnicallyComputers/retcomm-catalog/issues/24`. The issue
+has the `catalog-submission` label. It does not yet have the approved label.
+The missing `RESEND_API_KEY` email does not invalidate the public issue receipt.
