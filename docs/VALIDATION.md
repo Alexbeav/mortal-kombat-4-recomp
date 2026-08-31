@@ -109,16 +109,17 @@ Hidden headless boot gate:
 
 On 2026-08-31, the operator reported that Mortal Kombat 4 works after the
 exact-package handoff. This closes the manual Windows package-acceptance gate.
-The test route and duration were not recorded. This result does not establish
-full-game quality or support on another platform.
+The operator also ran the package from a writable directory whose path contains
+spaces. This closes the spaced-path setup gate. The test route and duration
+were not recorded. This result does not establish full-game quality or support
+on another platform.
 
 ## Open release gates
 
 1. Review and integrate the setup-host candidate through the framework process.
 2. Pin the accepted framework commit in this repository.
-3. Run a second clean-room setup from the exact ZIP in a writable path with spaces.
-4. Run setup-host release CI on Windows, Linux x64, macOS x64, and macOS ARM64.
-5. Prepare the standalone public repository and immutable `v0.3.0` draft.
-6. Show the exact release manifest and request publication approval.
-7. Publish only after approval, then download and audit the public asset.
-8. Show the final catalog manifest and request submission approval.
+3. Run setup-host release CI on Windows, Linux x64, macOS x64, and macOS ARM64.
+4. Prepare the standalone public repository and immutable `v0.3.0` draft.
+5. Show the exact release manifest and request publication approval.
+6. Publish only after approval, then download and audit the public asset.
+7. Show the final catalog manifest and request submission approval.
