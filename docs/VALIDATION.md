@@ -3,8 +3,8 @@
 Date: 2026-08-31
 
 Status: The local Windows build, setup-package audit, isolated RetComM build,
-and installed-binary boot gate pass. No repository, release, or catalog entry
-was published.
+installed-binary boot gate, and operator acceptance pass. No repository,
+release, or catalog entry was published.
 
 Current graduation state: `bootstrap_verified`. This evidence validates the
 packaging route. It does not establish full-game quality.
@@ -105,11 +105,20 @@ Hidden headless boot gate:
 - Failed freeze dumps: `0`
 - Process state after 25 seconds: active; the bounded gate stopped it
 
+## Operator acceptance
+
+On 2026-08-31, the operator reported that Mortal Kombat 4 works after the
+exact-package handoff. This closes the manual Windows package-acceptance gate.
+The test route and duration were not recorded. This result does not establish
+full-game quality or support on another platform.
+
 ## Open release gates
 
 1. Review and integrate the setup-host candidate through the framework process.
 2. Pin the accepted framework commit in this repository.
-3. Run setup-host release CI on all declared platforms.
-4. Perform final operator acceptance on the exact release package.
-5. Publish the repository and `v0.3.0` release only after approval.
-6. Show the final catalog manifest and request submission approval.
+3. Run a second clean-room setup from the exact ZIP in a writable path with spaces.
+4. Run setup-host release CI on Windows, Linux x64, macOS x64, and macOS ARM64.
+5. Prepare the standalone public repository and immutable `v0.3.0` draft.
+6. Show the exact release manifest and request publication approval.
+7. Publish only after approval, then download and audit the public asset.
+8. Show the final catalog manifest and request submission approval.
