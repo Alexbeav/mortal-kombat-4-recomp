@@ -239,7 +239,14 @@ CTest registration. No package was produced by those jobs.
 
 Framework commit `eecf3b2a` registers all four tests. A clean recompiler CMake
 configuration reports 125 test files and no unregistered test. The four focused
-tests pass locally. The replacement release-build run remains pending.
+tests pass locally.
+
+Replacement run `33375274724` passed emitter and setup-host compilation on
+macOS ARM64. Its archive step then stopped because the title wrapper required
+`launcher_assets`, although that optional directory contained no tracked file
+and was absent from the clean checkout. The wrapper now includes that directory
+only when it contains a file. The replacement release-build run remains
+pending.
 
 ## RetComM installation evidence
 

@@ -32,6 +32,10 @@ fi
 if [[ -f "${ROOT}/framework_pins.txt" ]]; then
   EXTRA_PROJECT+=(--project-file framework_pins.txt)
 fi
+if [[ -d "${ROOT}/launcher_assets" ]] && \
+   find "${ROOT}/launcher_assets" -type f -print -quit | grep -q .; then
+  EXTRA_PROJECT+=(--project-dir launcher_assets)
+fi
 
 cd "${ROOT}"
 exec bash "${PACKAGER}" \
@@ -54,5 +58,4 @@ exec bash "${PACKAGER}" \
   --project-file codegen_setup.h \
   --project-file README.md \
   --project-dir seeds \
-  --project-dir launcher_assets \
   "${EXTRA_PROJECT[@]}"
