@@ -78,14 +78,9 @@ Zip prefix for CI artifacts: `mortal-kombat-4-recomp`.
 
 ## Validation
 
-The local Windows setup package passed its private-payload audit. RetComM
-v0.6.33 then generated, built, and installed the exact extracted package. The
-installed executable passed the required frame-600 gate with SCPH-1001. It
-reported no fatal state and no automatic or failed freeze dump.
-
-This result validates the packaging route. It does not replace a full gameplay
-test or make this draft a public release. The source repository keeps the exact
-receipt in `docs/VALIDATION.md`.
+The source repository keeps the release evidence in `docs/VALIDATION.md`.
+No build is a public release until its exact package passes every listed gate.
+Boot evidence does not replace a full gameplay test.
 
 ## Symbols
 

@@ -45,6 +45,7 @@ exec bash "${PACKAGER}" \
   --version-env RELEASE_VERSION \
   --disc-hint "your legally owned Mortal Kombat 4 disc" \
   --bios-hint "a legal SCPH-1001 BIOS dump (required; OpenBIOS is not supported)" \
+  --runtime-dir mods \
   --project-file CMakeLists.txt \
   --project-file game.toml \
   --project-file VERSION \

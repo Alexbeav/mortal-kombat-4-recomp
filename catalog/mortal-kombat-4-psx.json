@@ -50,12 +50,12 @@
   "romm": {
     "platforms": ["ps", "psx", "ps1"]
   },
-  "notes": "Draft for the v0.3.0 RetComM packaging canary. The audited Windows package passed an isolated RetComM v0.6.33 build and a 5,417-frame boot gate. The operator accepted it on 2026-08-31 and ran it from a writable path with spaces. Publication remains pending. The operator test route and duration were not recorded.",
+  "notes": "Draft for the v0.3.2 RetComM packaging canary. Earlier local drafts were rejected before publication. The replacement Windows package passed its local archive audit and two clean-room RetComM builds, including one under paths with spaces. Exact-package gameplay acceptance, cross-platform CI, and publication remain pending.",
   "build": {
     "enabled": true,
     "source": {
       "github": "Alexbeav/mortal-kombat-4-recomp",
-      "ref": "v0.3.0"
+      "ref": "v0.3.2"
     },
     "toolchain": {
       "id": "cmake-clang-v1",

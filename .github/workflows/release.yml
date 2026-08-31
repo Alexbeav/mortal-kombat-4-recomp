@@ -48,10 +48,10 @@ on:
           - major
         default: patch
       publish:
-        description: 'Create git tag vX.Y.Z and GitHub Release'
+        description: 'Create git tag vX.Y.Z and draft GitHub Release'
         required: true
         type: boolean
-        default: true
+        default: false
       reuse_cached_emitters:
         description: 'Skip emitter rebuild when build-recompiler cache hits (psxrecomp SHA)'
         required: false
@@ -612,6 +612,19 @@ jobs:
           find artifacts -type f -name 'mortal-kombat-4-recomp-*.zip' -exec cp -v {} dist/ \;
           ls -la dist/
 
+      - name: Create release manifest and checksums
+        env:
+          TAG: ${{ needs.prepare.outputs.tag }}
+        run: |
+          set -euo pipefail
+          python3 tools/create_release_manifest.py \
+            --release "${TAG}" \
+            --dist dist \
+            --output dist/RELEASE-MANIFEST.json \
+            --checksums dist/SHA256SUMS.txt
+          cat dist/RELEASE-MANIFEST.json
+          cat dist/SHA256SUMS.txt
+
       - name: Ensure release tag exists
         if: github.event_name == 'workflow_dispatch'
         env:
@@ -627,7 +640,7 @@ jobs:
             git push origin "refs/tags/${TAG}"
           fi
 
-      - name: Publish release
+      - name: Create draft release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.prepare.outputs.tag }}
@@ -635,6 +648,9 @@ jobs:
           name: "Mortal Kombat 4 ${{ needs.prepare.outputs.tag }}"
           files: |
             dist/mortal-kombat-4-recomp-*.zip
+            dist/RELEASE-MANIFEST.json
+            dist/SHA256SUMS.txt
+          draft: true
           generate_release_notes: true
           fail_on_unmatched_files: true
           target_commitish: ${{ github.sha }}
