@@ -273,11 +273,31 @@ The hidden 25-second gate reached frame and VBlank `3719`. The process remained
 active until the gate stopped it. It reported no fatal state and zero automatic
 or failed freeze dumps.
 
+A second exact-CI-package canary used a new source tree, data root, install
+directory, and writable-state directory. All controlled paths contained spaces.
+RetComM generated, built, and installed successfully. The installed executable
+is `51767808` bytes with SHA-256
+`1a2a3be6eed8d7a7f0ed8b4723e9b88bf47c55d3f41d4c10fb50855b3a787502`.
+The hidden 25-second gate reached frame and VBlank `3564`. The process remained
+active until the gate stopped it. It reported no fatal state and zero automatic
+or failed freeze dumps.
+
 Tag `v0.3.4` points to exact CI source commit `98adbed`. The private draft
 release is
 `https://github.com/Alexbeav/mortal-kombat-4-recomp/releases/tag/untagged-c3adb2a9fba5d8daa998`.
 All six draft assets were downloaded again. Their sizes and SHA-256 values
 match the local candidate. The repeated content audit passed.
+
+## Public-source preflight
+
+The complete title Git history contains no disc, retail BIOS, save/state,
+generated retail source, backup payload, or exact private local path. The
+largest Git blob is `573522` bytes.
+
+The tagged source and the setup archives have no title-level license. This is
+a publication blocker. The immutable `v0.3.4` draft remains private and
+preserved. A public candidate must use a new version after the operator selects
+the title license.
 
 ## RetComM installation evidence
 
@@ -316,6 +336,9 @@ archive is rejected, these results do not qualify the replacement package.
 
 ## Open release gates
 
-1. Record operator gameplay acceptance for the exact CI `v0.3.4` package.
-2. Show the final catalog manifest and request submission approval.
-3. Publish the private draft only after explicit approval.
+1. Select the license for title-owned source files.
+2. Build and qualify a new immutable version that contains that license.
+3. Record operator gameplay acceptance for the exact replacement package.
+4. Validate the public-release readiness receipt.
+5. Publish through the authorized publisher.
+6. Show the final catalog manifest and request submission approval.
