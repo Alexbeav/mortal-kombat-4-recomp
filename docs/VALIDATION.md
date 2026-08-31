@@ -2,9 +2,10 @@
 
 Date: 2026-08-31
 
-Status: The `v0.3.0` and `v0.3.1` package drafts are rejected. The replacement
-`v0.3.2` Windows package passes its local archive audit and two clean-room
-RetComM canaries. No repository, release, or catalog entry was published.
+Status: The `v0.3.0` through `v0.3.3` package drafts are rejected. The
+replacement `v0.3.4` Windows package passes the local archive audit and two
+clean-room RetComM canaries. No repository, release, or catalog entry was
+published.
 
 Current graduation state: `bootstrap_verified`. The runtime evidence validates
 the RetComM build flow. Public package qualification remains incomplete.
@@ -14,22 +15,24 @@ the RetComM build flow. Public package qualification remains incomplete.
 - Game: Mortal Kombat 4, USA, `SLUS-00605`
 - Disc layout: one CUE/BIN set with one data track
 - Runtime BIOS: retail SCPH-1001
-- Proposed release: `v0.3.2`
+- Proposed release: `v0.3.4`
 - Proposed RetComM catalog ID: `mortal-kombat-4-psx`
 
 ## Framework identity
 
 - Studio intake: `249422969c1c59ac2a1f8aa2299e876a7133998e`
 - Accepted psxrecomp base: `f23c5ba1a220fe1ca8818cc48c026d6c2f7f2c64`
-- Local setup-host candidate: `5a0fdc4b7c4d9bb46dea0d101cd99bce198508d4`
+- Setup-host integration: `Alexbeav/psxrecomp` tag
+  `setup-host-retail-bios-v1`, commit
+  `decc42daa8fd83375beddfe86bdaa4953a05a97f`
 - recomp-ui: `87bbf43c419c16b97bf433a84d600969159e2e84`
 - recomp-net: `268e74fe718b38fe38643c358588bbc1e0f0af70`
 - RetComM rbengine: `ebd94a4729abe2c0615070cef3ffe05b3f9ebf28`
 - RetComM package consumer: release `v0.6.33`
 - RetComM inspected source: `4a30d0615ddbf71c9c62c3bce1e3b6163e42a1bd`
 
-The setup host uses a local framework candidate. Review and integration of that
-candidate remain release gates.
+The setup host pins the exact public integration tag and commit in Alex's
+framework fork. No upstream pull request was opened.
 
 ## Owned-input identity
 
@@ -101,7 +104,7 @@ invalidate the earlier private-payload pass claim.
 The `v0.3.1` payload audit confirms the corrected package boundary. It does not
 qualify `v0.3.2`.
 
-## Local `v0.3.2` Windows package candidate
+## Rejected `v0.3.2` Windows package draft
 
 - File: `mortal-kombat-4-recomp-0.3.2-windows-x64.zip`
 - Size: `29549894`
@@ -120,11 +123,13 @@ qualify `v0.3.2`.
 - Clean setup-host executable match: yes
 - Package version and build stamp: `0.3.2`
 
-The audit matched backup suffixes such as `.mcd.bak`. It allowed only the
-bundled OpenBIOS image in the framework BIOS directory. This is a local
-Windows candidate. It is not a public release.
+The audit matched backup suffixes such as `.mcd.bak`. It allowed the bundled
+OpenBIOS image in the framework BIOS directory. Mortal Kombat 4 disables
+OpenBIOS and requires a retail BIOS. The owned-input release boundary forbids
+the unused OpenBIOS image. Therefore, this package is rejected before
+publication and preserved under ignored scratch storage.
 
-## `v0.3.2` clean-room canaries
+## Rejected `v0.3.2` clean-room canaries
 
 RetComM v0.6.33 built the exact package twice with source ref `v0.3.2`.
 Each run used a new RetComM data root and the verified disc and BIOS inputs.
@@ -151,8 +156,79 @@ paths that contain spaces.
 - Failed freeze dumps: `0`
 
 Both processes remained active until the bounded gate stopped them. These
-results close the local exact-package and spaced-path canary gates. They do not
-replace cross-platform CI or operator gameplay acceptance for `v0.3.2`.
+results prove the RetComM path and spaced-path handling. They do not qualify
+`v0.3.4` because the tested package is rejected.
+
+## Rejected `v0.3.3` Windows package draft
+
+- File: `mortal-kombat-4-recomp-0.3.3-windows-x64.zip`
+- Size: `29409479`
+- SHA-256: `23f3ba10d206e50d07a2ef8d49e7c75bdb6c2fece0456f7fe1d70556fc2b0b83`
+- ZIP entries: `2195`
+- Extracted files: `1948`
+- Forbidden owned-input, player-state, or BIOS image files: `0`
+- OpenBIOS artifacts: `0`
+- Generated game or BIOS source files: `0`
+- Unsafe ZIP paths: `0`
+- Root mod manifests: `4`
+- Setup-host executable SHA-256: `32d22af46b95f803d024d7a23f705cfe3323f53aa9ebcdad4439eaca24d9cb0b`
+
+The archive passed its payload audit. Its exact-package RetComM build generated
+the retail SCPH-1001 backend and game source. CMake then stopped because the
+runtime required `openbios.bin` from the requested stem list, although it did
+not link the OpenBIOS backend. Framework commit `decc42d` makes OpenBIOS staging
+follow the linked backend set. This archive is rejected and preserved.
+
+## Local `v0.3.4` Windows package candidate
+
+- File: `mortal-kombat-4-recomp-0.3.4-windows-x64.zip`
+- Size: `29410101`
+- SHA-256: `d79f082ba5bd3e71783213f0b052bd905c596f151253ec040d313795e7809029`
+- ZIP entries: `2196`
+- Extracted files: `1949`
+- Extracted bytes: `74650179`
+- Forbidden disc, memory-card, or player-state files: `0`
+- BIOS images: `0`
+- OpenBIOS artifacts: `0`
+- Generated game or BIOS source files: `0`
+- Mod state files: `0`
+- Unsafe ZIP paths: `0`
+- Exact private local paths: `0`
+- Root mod manifests: `4`
+- Setup-host executable size: `13884344`
+- Setup-host executable SHA-256: `a0c40a712fac8eacd1a5b3d2e2ca1b3bc52bcfebb0fe17b6c500f0aa225c327`
+- Clean setup-host executable match: yes
+- Package version and build stamp: `0.3.4`
+
+The clean setup build referenced no generated retail source in `build.ninja`.
+The exact ZIP passed the owned-input and private-path audits.
+
+RetComM v0.6.33 consumed the exact ZIP twice. Each run used a new data root,
+the verified disc, and the verified SCPH-1001 BIOS.
+
+Canary A:
+
+- Installed executable size: `51767808`
+- Installed executable SHA-256: `331d004fc08d516bf64bdf09daabba6b8c2c4d6d5e1c9e0ec80f172a870feec5`
+- Final frame after the bounded 25-second gate: `3638`
+- VBlank raises: `3638`
+- Fatal state: none
+- Automatic freeze dumps: `0`
+- Failed freeze dumps: `0`
+
+Canary B put the source, data root, install, and writable-state directory in
+paths that contain spaces.
+
+- Installed executable size: `51767808`
+- Installed executable SHA-256: `64ca67160a9d6d37c70a427bad20c9bf559107cc205924144e6b58ff97667088`
+- Final frame after the bounded 25-second gate: `3658`
+- VBlank raises: `3658`
+- Fatal state: none
+- Automatic freeze dumps: `0`
+- Failed freeze dumps: `0`
+
+Both processes remained active until the bounded gate stopped them. These
+results qualify the local Windows package for remote release-build validation.
 
 ## RetComM installation evidence
 
@@ -179,7 +255,7 @@ Hidden headless boot gate:
 - Process state after 25 seconds: active; the bounded gate stopped it
 
 This evidence proves the RetComM generation and build flow. It does not qualify
-the rejected archive or the replacement `v0.3.2` package.
+the rejected archive or the replacement `v0.3.4` package.
 
 ## Operator acceptance
 
@@ -191,11 +267,8 @@ archive is rejected, these results do not qualify the replacement package.
 
 ## Open release gates
 
-1. Review and integrate the setup-host candidate through the framework process.
-2. Pin the accepted framework commit in this repository.
-3. Run setup-host release CI on Windows, Linux x64, macOS x64, and macOS ARM64.
-4. Record operator gameplay acceptance for the exact `v0.3.2` package.
-5. Prepare the private repository and immutable `v0.3.2` draft release.
-6. Show the exact release manifest and request publication approval.
-7. Publish only after approval, then download and audit the public asset.
-8. Show the final catalog manifest and request submission approval.
+1. Run setup-host release CI on Windows, Linux x64, macOS x64, and macOS ARM64.
+2. Record operator gameplay acceptance for the exact `v0.3.4` package.
+3. Prepare the immutable `v0.3.4` draft release.
+4. Download and audit every draft asset.
+5. Show the final catalog manifest and request submission approval.

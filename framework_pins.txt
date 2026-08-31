@@ -1,2 +1,2 @@
-psxrecomp=5a0fdc4 (5a0fdc4b7c4d9bb46dea0d101cd99bce198508d4; local setup-host candidate based on f23c5ba1a220fe1ca8818cc48c026d6c2f7f2c64)
+psxrecomp=setup-host-retail-bios-v1 (decc42daa8fd83375beddfe86bdaa4953a05a97f; Alexbeav/psxrecomp, based on f23c5ba1a220fe1ca8818cc48c026d6c2f7f2c64)
 recomp-ui=87bbf43 (87bbf43c419c16b97bf433a84d600969159e2e84)

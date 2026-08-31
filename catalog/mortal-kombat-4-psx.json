@@ -50,12 +50,12 @@
   "romm": {
     "platforms": ["ps", "psx", "ps1"]
   },
-  "notes": "Draft for the v0.3.2 RetComM packaging canary. Earlier local drafts were rejected before publication. The replacement Windows package passed its local archive audit and two clean-room RetComM builds, including one under paths with spaces. Exact-package gameplay acceptance, cross-platform CI, and publication remain pending.",
+  "notes": "Draft for the v0.3.4 RetComM packaging canary. Earlier local drafts were rejected before publication. The replacement removes the unused OpenBIOS payload and supports a retail-only generated build. Exact-package audit, clean-room builds, gameplay acceptance, cross-platform CI, and publication remain pending.",
   "build": {
     "enabled": true,
     "source": {
       "github": "Alexbeav/mortal-kombat-4-recomp",
-      "ref": "v0.3.2"
+      "ref": "v0.3.4"
     },
     "toolchain": {
       "id": "cmake-clang-v1",
