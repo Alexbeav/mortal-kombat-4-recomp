@@ -23,8 +23,8 @@ the RetComM build flow. Public package qualification remains incomplete.
 - Studio intake: `249422969c1c59ac2a1f8aa2299e876a7133998e`
 - Accepted psxrecomp base: `f23c5ba1a220fe1ca8818cc48c026d6c2f7f2c64`
 - Setup-host integration: `Alexbeav/psxrecomp` tag
-  `setup-host-retail-bios-v1`, commit
-  `decc42daa8fd83375beddfe86bdaa4953a05a97f`
+  `setup-host-retail-bios-v2`, commit
+  `eecf3b2a4ee3148f01f8f92b512930fd6307d82e`
 - recomp-ui: `87bbf43c419c16b97bf433a84d600969159e2e84`
 - recomp-net: `268e74fe718b38fe38643c358588bbc1e0f0af70`
 - RetComM rbengine: `ebd94a4729abe2c0615070cef3ffe05b3f9ebf28`
@@ -229,6 +229,17 @@ paths that contain spaces.
 
 Both processes remained active until the bounded gate stopped them. These
 results qualify the local Windows package for remote release-build validation.
+
+## Remote release-build validation
+
+GitHub Actions run `33374787051` used title commit `8ef9495` and framework
+commit `decc42d`. Linux and both macOS jobs stopped at the framework's
+test-registration guard. Four new Python tests existed on disk but had no
+CTest registration. No package was produced by those jobs.
+
+Framework commit `eecf3b2a` registers all four tests. A clean recompiler CMake
+configuration reports 125 test files and no unregistered test. The four focused
+tests pass locally. The replacement release-build run remains pending.
 
 ## RetComM installation evidence
 
