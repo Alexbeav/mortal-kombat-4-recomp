@@ -306,6 +306,30 @@ files. PSXRecomp keeps its separate PolyForm Noncommercial 1.0.0 license, and
 It must include the complete GPL text and the dependency-license boundary in
 the repository and every setup archive.
 
+## `v0.3.5` license closure
+
+Commit `2c19e55e3930f8a9cae96292699fe865cbf0be01` adds the complete
+GPL-3.0-only text, `THIRD_PARTY_NOTICES.md`, and the `v0.3.5` version boundary.
+Tag `v0.3.5` points to that commit.
+
+GitHub Actions run `33387790268` passed the Windows x64, Linux x64, macOS x64,
+and macOS ARM64 setup-host jobs. It created a private draft release. The draft
+remains unpublished.
+
+All four release archives were downloaded from the draft and inspected. Each
+archive contains `LICENSE`, `THIRD_PARTY_NOTICES.md`, `psxrecomp/LICENSE`, and
+`recomp-ui/LICENSE`. Each root `LICENSE` matches the selected GPL-3.0 text.
+
+| Platform | SHA-256 |
+|---|---|
+| Linux x64 | `4AB83EDE3D4BBC0A700B1605B8BF83317149E9D0EE5AD1909EC3A96A8B18488D` |
+| macOS ARM64 | `299A5E60419F550F7640C532281286086DA9ED3A5140C55B297D5FDBC4630D77` |
+| macOS x64 | `F385072F931E3C21C5E06AB89200C2536CB6D7A553AC0FF6EA05089D7E05E3DA` |
+| Windows x64 | `BD1C0B190E8E3DC70A4E573EFDAFEAFBA1CB20BF7361885D35D4A8A95C2EC08D` |
+
+This closes the missing-license blocker. Public visibility and release
+publication remain separate actions.
+
 ## RetComM installation evidence
 
 RetComM release `v0.6.33` consumed the rejected `v0.3.0` archive in a fresh
