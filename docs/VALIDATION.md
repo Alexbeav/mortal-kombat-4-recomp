@@ -4,8 +4,9 @@ Date: 2026-08-31
 
 Status: The `v0.3.0` through `v0.3.3` package drafts are rejected. The
 replacement `v0.3.4` Windows package passes the local archive audit and two
-clean-room RetComM canaries. No repository, release, or catalog entry was
-published.
+clean-room RetComM canaries. Its missing title license blocks publication.
+The `v0.3.5` source boundary adds the selected license and awaits package
+qualification. No repository, release, or catalog entry was published.
 
 Current graduation state: `bootstrap_verified`. The runtime evidence validates
 the RetComM build flow. Public package qualification remains incomplete.
@@ -15,7 +16,7 @@ the RetComM build flow. Public package qualification remains incomplete.
 - Game: Mortal Kombat 4, USA, `SLUS-00605`
 - Disc layout: one CUE/BIN set with one data track
 - Runtime BIOS: retail SCPH-1001
-- Proposed release: `v0.3.4`
+- Proposed release: `v0.3.5`
 - Proposed RetComM catalog ID: `mortal-kombat-4-psx`
 
 ## Framework identity
@@ -298,6 +299,12 @@ The tagged source and the setup archives have no title-level license. This is
 a publication blocker. The immutable `v0.3.4` draft remains private and
 preserved. A public candidate must use a new version after the operator selects
 the title license.
+
+On 2026-08-31, the operator selected `GPL-3.0-only` for portfolio-owned project
+files. PSXRecomp keeps its separate PolyForm Noncommercial 1.0.0 license, and
+`recomp-ui` keeps its MIT license. The replacement candidate must use `v0.3.5`.
+It must include the complete GPL text and the dependency-license boundary in
+the repository and every setup archive.
 
 ## RetComM installation evidence
 

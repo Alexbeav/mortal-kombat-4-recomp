@@ -56,6 +56,16 @@ Disc images under `disc/` are gitignored and must never be committed.
 This title requires a legal SCPH-1001 BIOS dump. OpenBIOS is not supported by
 this package. Retail BIOS dumps are not redistributed.
 
+## License
+
+Project-owned source, scripts, configuration, and documentation use
+`GPL-3.0-only`. See `LICENSE`.
+
+This license does not cover Mortal Kombat 4 content, generated retail code,
+artwork, names, or trademarks. PSXRecomp remains under PolyForm Noncommercial
+1.0.0. `recomp-ui` remains under MIT. See `THIRD_PARTY_NOTICES.md` and the
+license files in each submodule.
+
 Default app icon: `assets/psxrecomp.ico` (and `.png` / `.svg`) — RetComM-themed controller mark from `psxrecomp/assets/`. Windows builds embed it via `APP_ICON`.
 
 Optional box art under `launcher_assets/img/` may come from

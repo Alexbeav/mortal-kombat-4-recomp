@@ -56,6 +56,8 @@ exec bash "${PACKAGER}" \
   --project-file VERSION \
   --project-file codegen_setup.c \
   --project-file codegen_setup.h \
+  --project-file LICENSE \
+  --project-file THIRD_PARTY_NOTICES.md \
   --project-file README.md \
   --project-dir seeds \
   "${EXTRA_PROJECT[@]}"
